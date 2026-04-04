@@ -28,6 +28,14 @@
         list-style: none;
         display: flex;
         gap: 1rem;
+        
+        li {
+            opacity: 0.8;
+        }
+
+        li:hover {
+            opacity: 1;
+        }
 
         li img {
             object-fit: contain;

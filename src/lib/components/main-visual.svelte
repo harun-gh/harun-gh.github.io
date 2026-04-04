@@ -3,18 +3,35 @@
     import CodebergIcon from "$lib/assets/codeberg.svg";
     import XIcon from "$lib/assets/x.svg";
     import SnsLinks from "./sns-links.svelte";
+
+    import { Tween } from 'svelte/motion';
+    import { cubicOut } from 'svelte/easing';
+    import { Zap } from "@lucide/svelte";
+
+    const animation = new Tween(0, {
+        duration: 500,
+        easing: cubicOut
+    });
+
+    $effect(() => {
+        animation.target = -10;
+    });
 </script>
 
 <main>
     <section class="avatar">
-        <img alt="Harutoのアイコン" src="/favicon.webp" />
+        <img
+            alt="Harutoのアイコン"
+            src="/favicon.webp"
+            style="transform: rotate({animation.current}deg);"
+        />
     </section>
 
     <section class="intro">
         <h2 class="realname">Haruto Nakamura</h2>
         <ul>
-            <li>新大学1年生</li>
-            <li>プログラミング初心者</li>
+            <li>新大学1年生 / プログラミング初心者</li>
+            <li><Zap /> Zig を主に使って開発してます</li>
         </ul>
     </section>
 
@@ -62,7 +79,6 @@
             & img {
                 object-fit: cover;
                 box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
-                transform: rotate(-8deg);
                 width: 240px;
                 height: 240px;
             }
