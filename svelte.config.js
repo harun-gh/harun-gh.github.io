@@ -13,7 +13,13 @@ const config = {
 			return isExternalLibrary ? undefined : true;
 		}
 	},
-	kit: { adapter: adapter() }
+	kit: {
+		adapter: adapter({
+			assets: "build",
+			pages: "build",
+			strict: true
+		})
+	}
 };
 
 export default config;
