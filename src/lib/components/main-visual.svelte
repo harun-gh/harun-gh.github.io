@@ -84,14 +84,15 @@
                 height: 240px;
                 transform: rotate(-10deg);
 
+                --scale-on-hover: 1.1;
+
                 &:hover {
                     box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.2);
-                    transform: rotate(-4deg);
-                    scale: 1.1;
+                    transform: rotate(-4deg) scale(var(--scale-on-hover));
                 }
 
                 &:hover:active {
-                    scale: calc(1.1 * 0.92);
+                    transform: rotate(-4deg) scale(calc(var(--scale-on-hover) * 0.92));
                 }
             }
         }
