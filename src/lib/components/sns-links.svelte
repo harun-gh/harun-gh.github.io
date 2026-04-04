@@ -16,7 +16,7 @@
 <ul>
     {#each props as { href, image_src, service_name, title }}
         <li>
-            <a {href} {title}>
+            <a target="_blank" rel="noreferrer noopener" {href} {title}>
                 <img src={image_src} alt={`${service_name} のロゴ`} />
             </a>
         </li>
@@ -31,10 +31,13 @@
         
         li {
             opacity: 0.8;
+            filter: blur(1.25px);
+            transition: all .3s ease;
         }
 
         li:hover {
             opacity: 1;
+            filter: initial;
         }
 
         li img {

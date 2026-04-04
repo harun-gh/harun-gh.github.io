@@ -4,18 +4,18 @@
     import XIcon from "$lib/assets/x.svg";
     import SnsLinks from "./sns-links.svelte";
 
-    import { Tween } from 'svelte/motion';
-    import { cubicOut } from 'svelte/easing';
+    // import { Tween } from 'svelte/motion';
+    // import { cubicOut } from 'svelte/easing';
     import { Zap } from "@lucide/svelte";
 
-    const animation = new Tween(0, {
-        duration: 500,
-        easing: cubicOut
-    });
+    // const animation = new Tween(0, {
+    //     duration: 500,
+    //     easing: cubicOut
+    // });
 
-    $effect(() => {
-        animation.target = -10;
-    });
+    // $effect(() => {
+    //     animation.target = -10;
+    // });
 </script>
 
 <main>
@@ -23,7 +23,7 @@
         <img
             alt="Harutoのアイコン"
             src="/favicon.webp"
-            style="transform: rotate({animation.current}deg);"
+            // style="transform: rotate({animation.current}deg);"
         />
     </section>
 
@@ -77,10 +77,22 @@
             justify-content: center;
 
             & img {
+                transition: box-shadow .3s ease, scale .3s ease, transform .3s ease;
                 object-fit: cover;
                 box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
                 width: 240px;
                 height: 240px;
+                transform: rotate(-10deg);
+
+                &:hover {
+                    box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.2);
+                    transform: rotate(-4deg);
+                    scale: 1.1;
+                }
+
+                &:hover:active {
+                    scale: calc(1.1 * 0.92);
+                }
             }
         }
 
