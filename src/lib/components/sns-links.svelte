@@ -40,10 +40,14 @@
             filter: initial;
         }
 
+        li a {
+            display: inline-block;
+        }
+
         li img {
-            object-fit: contain;
             width: 3rem;
             height: 3rem;
+            object-fit: contain;
         }
     }
 </style>

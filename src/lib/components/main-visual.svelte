@@ -31,7 +31,7 @@
         <h2 class="realname">Haruto Nakamura</h2>
         <ul>
             <li>新大学1年生 / プログラミング初心者</li>
-            <li><Zap /> Zig を主に使って開発してます</li>
+            <li>主に <span class="zig"><Zap /> Zig</span> で開発してます</li>
         </ul>
     </section>
 
@@ -62,6 +62,10 @@
 </main>
 
 <style>
+    .zig {
+        color: #FFC20E;
+    }
+
     main {
         width: 100vw;
         height: 100vh;
