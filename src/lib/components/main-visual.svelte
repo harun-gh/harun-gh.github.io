@@ -8,6 +8,27 @@
     // import { cubicOut } from 'svelte/easing';
     import { Zap } from "@lucide/svelte";
 
+    const links = [
+        {
+            service_name: "Github",
+            image_src: GithubIcon,
+            href: "https://github.com/harun-gh",
+            title: "Github: @harun-gh"
+        },
+        {
+            service_name: "Codeberg",
+            image_src: CodebergIcon,
+            href: "https://codeberg.org/haruto_n",
+            title: "Codeberg: @haruto_n"
+        },
+        {
+            service_name: "X (Twitter)",
+            image_src: XIcon,
+            href: "https://x.com/haruto1521",
+            title: "X (Twitter): @haruto1521"
+        }
+    ];
+
     // const animation = new Tween(0, {
     //     duration: 500,
     //     easing: cubicOut
@@ -30,34 +51,13 @@
     <section class="intro">
         <h2 class="realname">Haruto Nakamura</h2>
         <ul>
-            <li>新大学1年生 / プログラミング初心者</li>
+            <li>新大学1年生 / 低レイヤーにハマってます</li>
             <li>主に <span class="zig"><Zap /> Zig</span> で開発してます</li>
         </ul>
     </section>
 
     <section class="sns-links">
-        <SnsLinks
-            props={[
-                {
-                    service_name: "Github",
-                    image_src: GithubIcon,
-                    href: "https://github.com/harun-gh",
-                    title: "Github: @harun-gh"
-                },
-                {
-                    service_name: "Codeberg",
-                    image_src: CodebergIcon,
-                    href: "https://codeberg.org/haruto_n",
-                    title: "Codeberg: @haruto_n"
-                },
-                {
-                    service_name: "X (Twitter)",
-                    image_src: XIcon,
-                    href: "https://x.com/haruto1521",
-                    title: "X (Twitter): @haruto1521"
-                }
-            ]}
-        />
+        <SnsLinks props={links} />
     </section>
 </main>
 
