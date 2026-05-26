@@ -10,4 +10,12 @@
 	<title>Haruto Nakamura</title>
 </svelte:head>
 
-{@render children()}
+<main>
+	{@render children()}
+</main>
+
+<style>
+	main {
+		padding-bottom: 10rem;
+	}
+</style>

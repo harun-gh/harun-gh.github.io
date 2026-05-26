@@ -1,140 +1,78 @@
 <script lang="ts">
-    import GithubIcon from "$lib/assets/github.svg";
-    import CodebergIcon from "$lib/assets/codeberg.svg";
-    import XIcon from "$lib/assets/x.svg";
-    import SnsLinks from "./sns-links.svelte";
-
-    // import { Tween } from 'svelte/motion';
-    // import { cubicOut } from 'svelte/easing';
     import { Zap } from "@lucide/svelte";
-
-    const links = [
-        {
-            service_name: "Github",
-            image_src: GithubIcon,
-            href: "https://github.com/harun-gh",
-            title: "Github: @harun-gh"
-        },
-        {
-            service_name: "Codeberg",
-            image_src: CodebergIcon,
-            href: "https://codeberg.org/haruto_n",
-            title: "Codeberg: @haruto_n"
-        },
-        {
-            service_name: "X (Twitter)",
-            image_src: XIcon,
-            href: "https://x.com/haruto1521",
-            title: "X (Twitter): @haruto1521"
-        }
-    ];
-
-    // const animation = new Tween(0, {
-    //     duration: 500,
-    //     easing: cubicOut
-    // });
-
-    // $effect(() => {
-    //     animation.target = -10;
-    // });
+    import ScrollPrompt from "./scroll-prompt.svelte";
 </script>
 
-<main>
-    <section class="avatar">
-        <img
-            alt="Harutoのアイコン"
-            src="/favicon.webp"
-            // style="transform: rotate({animation.current}deg);"
-        />
-    </section>
+<section class="main-visual">
+    <div class="boundary">
+        <img class="avatar" src="/favicon.webp" alt="Harutoのアイコン">
+        
+        <div class="introduce">
+            <h1>Haruto Nakamura</h1>
 
-    <section class="intro">
-        <h2 class="realname">Haruto Nakamura</h2>
-        <ul>
-            <li>新大学1年生 / 低レイヤーにハマってます</li>
-            <li>主に <span class="zig"><Zap /> Zig</span> で開発してます</li>
-        </ul>
-    </section>
+            <ul>
+                <li>新大学1年生 / 低レイヤーにハマってます</li>
+                <li>主に <span class="zig"><Zap /> Zig</span> で開発してます</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <section class="sns-links">
-        <SnsLinks props={links} />
-    </section>
-</main>
+<ScrollPrompt />
 
 <style>
-    .zig {
-        color: #FFC20E;
+    section.main-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
     }
 
-    main {
-        width: 100vw;
-        height: 100vh;
+    .boundary {
         display: flex;
-        position: relative;
         align-items: center;
-        justify-content: center;
+        gap: clamp(1.5rem, 10vw, 10rem);
 
-        & section.avatar {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        @media (max-width: 48rem) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
 
-            & img {
-                transition: box-shadow .3s ease, scale .3s ease, transform .3s ease;
-                object-fit: cover;
-                box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
-                width: 240px;
-                height: 240px;
-                transform: rotate(-10deg);
+    .avatar {
+        --image-size: clamp(170px, 18vw, 240px);
+        height: var(--image-size);
+        width: var(--image-size);
+        object-fit: cover;
+        flex-shrink: 0;
+        transition: box-shadow .3s ease, scale .3s ease, transform .3s ease;
+        box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+        transform: rotate(-5deg);
 
-                --scale-on-hover: 1.1;
+        --scale-on-hover: 1.1;
 
-                &:hover {
-                    box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.2);
-                    transform: rotate(-4deg) scale(var(--scale-on-hover));
-                }
-
-                &:hover:active {
-                    transform: rotate(-4deg) scale(calc(var(--scale-on-hover) * 0.92));
-                }
-            }
+        &:hover {
+            box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.2);
+            transform: rotate(0deg) scale(var(--scale-on-hover));
         }
 
-        & section.intro {
-            flex: 1;
-
-            & h2.realname {
-                font-size: 3rem;
-                -webkit-text-stroke: 2px #333;
-                color: transparent;
-                margin: 2rem 0;
-            }
-
-            & ul {
-                list-style: none;
-            }
-
-            & ul li {
-                font-size: 1.25rem;
-                line-height: 1.8;
-
-                &::before {
-                    content: "○";
-                    margin-right: 1.5rem;
-                    font-size: 0.7em;
-                    color: #000000;
-                    vertical-align: middle;
-                }
-            }
+        &:hover:active {
+            transform: rotate(0deg) scale(calc(var(--scale-on-hover) * 0.92));
         }
+    }
 
-        & section.sns-links {
-            position: absolute;
-            top: auto;
-            left: auto;
-            bottom: 5vh;
-            right: 5vw;
+    .introduce h1 {
+        -webkit-text-stroke: 2px #333;
+        color: transparent;
+        margin: 2rem 0;
+    }
+
+    .zig {
+        color: rgb(214, 158, 0);
+
+        & > :global(svg) {
+            vertical-align: middle;
         }
     }
 </style>
