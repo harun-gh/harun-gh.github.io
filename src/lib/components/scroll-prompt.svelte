@@ -10,7 +10,7 @@
         position: absolute;
         text-align: center;
         left: 50%;
-        bottom: 10vh;
+        bottom: clamp(16px, 5vh, 40px);
     }
     .scroll::before {
         animation: scroll 1.5s infinite;
