@@ -70,9 +70,5 @@
 
     .zig {
         color: rgb(214, 158, 0);
-
-        & > :global(svg) {
-            vertical-align: middle;
-        }
     }
 </style>
