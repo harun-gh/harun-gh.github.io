@@ -1,57 +1,24 @@
 <script>
     import MainVisual from "$lib/components/main-visual.svelte";
+    import ProfileTable from "$lib/components/profile-table.svelte";
     import { FileBraces, LibraryBig, Link, Music4, Users } from "@lucide/svelte";
 </script>
 
 <MainVisual />
 
 <section class="content">
-    <section class="links">
-        <h2><Link /> リンク</h2>
+    <section class="about-me">
+        <h2>私について</h2>
 
-        <ul>
-            <li><a href="https://github.com/harun-gh" rel="author" target="_blank">Github: @harun-gh</a></li>
-            <li><a href="https://x.com/haruto1521" rel="author" target="_blank">Twitter: @haruto1521</a></li>
-            <li><a href="https://discordapp.com/users/1489466214450331760" rel="author" target="_blank">Discord: haruto_1521</a></li>
-        </ul>
-    </section>
+        <p>
+            大学一年生(2026/04入学)で、依存関係ゼロでのWebサーバーやOSの実装に取り組んでいます
+        </p>
 
-    <section class="belong-circles">
-        <h2><Users /> 所属サークル</h2>
-
-        <ul>
-            <li>ソフトメディア研究会 P班</li>
-            <li>ネットワークコンテンツ研究会</li>
-            <li>第二テニスサークル</li>
-        </ul>
-    </section>
-
-    <section class="skills">
-        <h2><FileBraces /> 扱えるプログラミング言語</h2>
-
-        <ul>
-            <li>Zig</li>
-            <li>TypeScript(+ JavaScript)</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Assembly (x86_64 命令アーキテクチャ)</li>
-        </ul>
-    </section>
-
-    <section class="favorite-works">
-        <h2><LibraryBig /> 好きな作品</h2>
-
-        <ul>
-            <li>狼と香辛料 <small>(アニメ, 漫画, 小説)</small></li>
-            <li>狼と羊皮紙 <small>(小説)</small></li>
-            <li>とんがり帽子のアトリエ <small>(アニメ, 漫画)</small></li>
-            <li>メイドインアビス <small>(アニメ, 映画, 漫画)</small></li>
-            <li>Unnamed Memory <small>(小説)</small></li>
-            <li>葬送のフリーレン <small>(漫画)</small></li>
-            <li>NieR:Automata <small>(ゲーム)</small></li>
-            <li>サマータイムレンダ <small>(アニメ, 漫画)</small></li>
-            <li>夜は猫といっしょ <small>(漫画)</small></li>
-        </ul>
+        <ProfileTable contents={{
+            "学部/学科": "情報変革科学部 認知情報科学科",
+            "バイト": "やってません",
+            "主な言語": "Zig, HTML, CSS, TypeScript(+ JavaScript)"
+        }} />
     </section>
 
     <section class="favorite-music">
@@ -64,14 +31,22 @@
 
 <style>
     section.content {
+        color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0 10vw;
         flex-direction: column;
-
-        & > * {
+        & > section {
             width: clamp(320px, 75vw, 750px);
         }
+    }
+
+    h2 {
+        margin: 1.5rem 0;
+    }
+
+    p {
+        margin: .5rem 0;
     }
 </style>
