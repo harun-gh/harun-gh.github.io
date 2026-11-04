@@ -1,16 +1,54 @@
-# ポートフォリオ
+# sv
 
-僕の自己紹介用サイトのリポジトリです  
-  
-即興で作ったので雑なところがあるかもしれません  
-気づきがあり次第、修正します
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## 現在認知している問題
+## Creating a project
 
-### 重要
+If you're seeing this, you've probably already done this step. Congrats!
 
-- `CSS Nesting` の対応状況 ([Can I Use参照](https://caniuse.com/?search=CSS%20Nesting)) を見るに、一部のブラウザの対応が追い付いていません (PostCSSなどでビルドするのがいいかも)
+```sh
+# create a new project
+npx sv create my-app
+```
 
-### 優先度低め
+To recreate this project with the same configuration:
 
-- ダークモードの対応
+```sh
+# recreate this project
+bun x sv@1.2.0 create --template minimal --types ts --add sveltekit-adapter="adapter:static" enhanced-img --install bun ./
+```
+
+## Adding features
+
+Add features to your project with `sv add`:
+
+```sh
+npx sv add
+```
+
+For example, to add Tailwind CSS:
+
+```sh
+npx sv add tailwindcss
+```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```sh
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```sh
+npm run build
+```
+
+You can preview the production build with `npm run preview`.

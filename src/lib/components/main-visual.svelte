@@ -3,16 +3,18 @@
     import ScrollPrompt from "./scroll-prompt.svelte";
     import WaveBackground from "./wave-background.svelte";
 
-    import GithubLogo from "../assets/github.svg";
-    import TwitterLogo from "../assets/x.svg";
-    import DiscordLogo from "../assets/discord.svg";
+    import GithubLogo from "../assets/github.png?enhanced";
+    import TwitterLogo from "../assets/x.png?enhanced";
+    import DiscordLogo from "../assets/discord.svg?enhanced";
+
+    import HarutoIcon from "../assets/favicon.png?enhanced";
 </script>
 
 <section class="main-visual">
     <WaveBackground />
 
     <div class="boundary">
-        <img class="avatar" src="/favicon.webp" alt="Harutoのアイコン">
+        <enhanced:img class="avatar" src={HarutoIcon} alt="Harutoのアイコン" />
         
         <div class="introduce">
             <h1>Haruto Nakamura</h1>
@@ -20,9 +22,9 @@
             <p class="pronoun">主に <span class="zig"><Zap /> Zig</span> で開発しています</p>
 
             <ul class="socials">
-                <li><a href="https://github.com/harun-gh" rel="author" target="_blank">Github <img src={GithubLogo} alt="GitHub's Logo"></a></li>
-                <li><a href="https://x.com/haruto1521" rel="author" target="_blank">Twitter <img src={TwitterLogo} alt="Twitter's Logo"></a></li>
-                <li><a href="https://discordapp.com/users/1489466214450331760" rel="author" target="_blank">Discord <img src={DiscordLogo} alt="Discord's Logo"></a></li>
+                <li><a href="https://github.com/harun-gh" rel="author" target="_blank">Github <enhanced:img src={GithubLogo} alt="GitHub's Logo" /></a></li>
+                <li><a href="https://x.com/haruto1521" rel="author" target="_blank">Twitter <enhanced:img src={TwitterLogo} alt="Twitter's Logo" /></a></li>
+                <li><a href="https://discordapp.com/users/1489466214450331760" rel="author" target="_blank">Discord <enhanced:img src={DiscordLogo} alt="Discord's Logo" /></a></li>
             </ul>
         </div>
     </div>
