@@ -42,7 +42,7 @@
 
         & tr {
             width: 100%;
-            border-bottom: 1px dotted rgb(255, 255, 255);
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
 
             &:first-child {
                 border-top: 1px dotted rgb(255, 255, 255);
